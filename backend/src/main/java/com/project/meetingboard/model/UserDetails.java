@@ -14,7 +14,6 @@ import lombok.ToString;
 @Document
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class UserDetails {
@@ -24,6 +23,14 @@ public class UserDetails {
 	private String emailId;
 	private String password;
 	private List<String> boards;
+	
+	public UserDetails(String emailId, String password, List<String> boards) {
+		super();
+		this.emailId = emailId;
+		this.password = password;
+		this.boards = boards;
+	}
 
+	
 
 }
