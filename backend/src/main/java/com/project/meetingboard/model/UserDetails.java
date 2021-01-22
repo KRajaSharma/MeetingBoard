@@ -26,6 +26,8 @@ public class UserDetails {
 	private String emailId;
 	private String password;
 	private List<String> boards;
+	private String resetToken;
+	private boolean enabled = true;
 	
 	public UserDetails(String emailId, String password, List<String> boards) {
 		super();

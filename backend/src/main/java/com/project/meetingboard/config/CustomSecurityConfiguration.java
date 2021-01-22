@@ -23,7 +23,7 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests()
+		http.csrf().disable().authorizeRequests().antMatchers("/swagger-ui.html,/v2/api-docs/").permitAll()
 		//.antMatchers("/v1/user","/v2/api-docs", "/csrf","/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
 		.anyRequest().authenticated().and().httpBasic().and()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -41,6 +41,7 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
     public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/swagger-resources/**","/swagger-ui.html**","/webjars/**","/v2/api-docs");
+		web.ignoring().antMatchers("/v1/user/**","/swagger-ui.html**","/swagger-resources/**","/webjars/**","/v2/api-docs");
+		//web.ignoring().antMatchers("/v1/user","/v3/user","/v1/user/**","/reset_password**","/swagger-resources/**","/swagger-ui.html**","/webjars/**","/v2/api-docs","/v1/user/resetpassword.html?token=**");
     }
 }
