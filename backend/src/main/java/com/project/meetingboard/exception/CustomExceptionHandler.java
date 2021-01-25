@@ -2,8 +2,6 @@ package com.project.meetingboard.exception;
 
 import java.util.Date;
 
-import javax.mail.SendFailedException;
-
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

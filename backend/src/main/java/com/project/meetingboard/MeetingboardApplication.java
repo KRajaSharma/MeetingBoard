@@ -32,4 +32,5 @@ public class MeetingboardApplication {
 	    
 	    return mailSender;
 	}
+	
 }
