@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService : UserServiceService) { }
 
   ngOnInit(): void {
-    this.userService.getTest().subscribe(response => this.res = response.toString());
+    // this.userService.getTest().subscribe(response => this.res = response.toString());
   }
 
 }
