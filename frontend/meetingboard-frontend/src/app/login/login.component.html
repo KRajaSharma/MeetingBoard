@@ -60,9 +60,7 @@
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
         </a>
-        HHHHHHHH
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            Hiiiiiiiiiiiii
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="buttons.html">Buttons</a>
@@ -70,6 +68,20 @@
           </div>
         </div>
       </li>
+
+      <mat-accordion class="nav-item" >
+        <mat-expansion-panel >
+            <mat-expansion-panel-header>
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Components</span>
+            </mat-expansion-panel-header>
+            <div class="bg-white py-2 collapse-inner rounded" style="background-color: red;">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
+              </div>
+        </mat-expansion-panel>
+      </mat-accordion>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -148,7 +160,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-gradient-info topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -167,6 +179,11 @@
             </div>
           </form>
 
+          <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+                </mat-menu>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -189,6 +206,12 @@
                 </form>
               </div>
             </li>
+
+            <button mat-button [matMenuTriggerFor]="menu"> <i class="fas fa-bell fa-fw"></i></button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+                </mat-menu>
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
