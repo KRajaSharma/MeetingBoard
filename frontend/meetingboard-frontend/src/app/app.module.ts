@@ -9,11 +9,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from "@angular/material/button";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatMenuModule } from "@angular/material/menu";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { MatInputModule } from "@angular/material/input";
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    RegisterComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +30,9 @@ import { MatMenuModule } from "@angular/material/menu";
     BrowserAnimationsModule,
     MatButtonModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
