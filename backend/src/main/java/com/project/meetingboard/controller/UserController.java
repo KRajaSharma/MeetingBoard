@@ -32,8 +32,8 @@ public class UserController {
 		return ResponseEntity.ok(createdUser);
 	}
 
-	@PutMapping(path = "/_forgotPassword")
-	public ResponseEntity<String> forgotPassword(@RequestParam("email") String userEmail) {
+	@PostMapping(path = "/_forgotPassword")
+	public ResponseEntity<String> forgotPassword(@RequestParam("emailid") String userEmail) {
 		log.debug("Forgot Password api invoked");
 		final String response = userDetailsService.forgotPassword(userEmail);
 		return ResponseEntity.ok(response);
