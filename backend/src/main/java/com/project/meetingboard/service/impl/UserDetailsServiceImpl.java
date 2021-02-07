@@ -68,11 +68,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		UserDetails user = repository.findByResetToken(token);
 		if (user == null) {
-			return "Invalid Token";
+			throw new UsernameNotFoundException("Invalid Token");
 		} else {
 			user.setPassword(encoder.encode(password));
 			user.setResetToken(null);
 			repository.save(user);
+			log.info("Password Reset Successful");
 			return "You have successfully changed your password.";
 		}
 	}
