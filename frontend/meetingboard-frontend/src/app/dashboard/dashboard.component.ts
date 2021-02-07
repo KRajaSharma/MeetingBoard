@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  res: any;
+  constructor(private userService: UserServiceService) { }
 
   ngOnInit(): void {
   }
