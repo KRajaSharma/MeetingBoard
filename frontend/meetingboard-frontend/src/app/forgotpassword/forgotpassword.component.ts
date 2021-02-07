@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -8,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotpasswordComponent implements OnInit {
 
   emailId:string;
-  constructor() { }
+  isValidId = true;
+  isMailSent = false;
+  constructor(private userService:UserServiceService,private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  sendMail(){
+
+    this.userService.forgotPassword(this.emailId).subscribe(
+      data =>{
+        this.isMailSent = true;
+        console.log(data);
+        this.router.navigate(['reset']);
+      },
+      error =>{
+        this.isValidId = false;
+        console.log(error)
+      }
+    )
+
   }
 
 }
