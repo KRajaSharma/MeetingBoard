@@ -10,27 +10,27 @@ import { UserServiceService } from '../service/user-service.service';
 })
 export class LoginComponent implements OnInit {
 
-  res :string;
-  username :string;
-  password :string;
-  invalidLogin = false;  
-  constructor(private userService : UserServiceService,private authService:AuthenticationService, private router:Router) { }
+  res: string;
+  emaildId: string;
+  password: string;
+  invalidLogin = false;
+  constructor(private userService: UserServiceService, private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     // this.userService.getTest().subscribe(response => this.res = response.toString());
   }
 
-  checkLogin(){
+  checkLogin() {
 
-    if(this.authService.authenticate(this.username,this.password)){
-      this.router.navigate(['dashboard']);
-      this.invalidLogin = false;
-    }else{
-      this.invalidLogin = true;
-    }
-
-
-
+    this.authService.authenticate(this.emaildId, this.password).subscribe(
+      data => {
+        this.router.navigate(['dashboard']);
+        this.invalidLogin = false;
+      },
+      error => {
+        this.invalidLogin = true;
+      }
+    )
   }
 
 }
