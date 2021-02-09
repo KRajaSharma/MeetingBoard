@@ -36,4 +36,9 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
+  test(id){
+    console.log(id);
+    console.log("test");
+  }
  }

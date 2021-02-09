@@ -1,0 +1,16 @@
+.customCard:hover{
+    cursor: pointer;
+    transform: scale(1.1);  
+}
+.customCard{ 
+    transition: transform 0.8s ease-in-out;
+ }
+.customflex{
+    display: flex;
+    /* justify-content: center; */
+    position: relative;
+}
+.customflex button {
+    position: absolute;
+    right: 0;
+  }
