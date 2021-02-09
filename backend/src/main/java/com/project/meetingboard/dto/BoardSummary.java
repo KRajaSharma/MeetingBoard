@@ -15,25 +15,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class BoardDTO {
+public class BoardSummary {
 
 	private String id;
-	private List<String> wentWell;
-	private List<String> toImprove;
-	private List<String> actionItem;
 	private String title;
 	private String context;
-	private boolean isActive = true;
 	private String createdOn;
 
-	public BoardDTO(Board board) {
+	public BoardSummary(Board board) {
 		this.id = board.getId();
-		this.wentWell = board.getWentWell();
-		this.toImprove = board.getToImprove();
-		this.actionItem = board.getActionItem();
 		this.title = board.getTitle();
 		this.context = board.getContext();
-		this.isActive = board.isActive();
 		this.createdOn = board.getCreatedOn();
 	}
 }
