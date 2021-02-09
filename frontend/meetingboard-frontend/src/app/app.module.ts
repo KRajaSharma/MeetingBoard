@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from "@angular/material/button";
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { MatInputModule } from "@angular/material/input";
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,11 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     FormsModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,useClass:BasicAuthHttpInterceptorService,multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
