@@ -16,6 +16,9 @@ import { MatInputModule } from "@angular/material/input";
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
+import {MatIconModule} from '@angular/material/icon';
+import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
     DashboardComponent,
     RegisterComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    LogoutDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,13 +39,16 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
     MatExpansionModule,
     MatMenuModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [
     {
       provide:HTTP_INTERCEPTORS,useClass:BasicAuthHttpInterceptorService,multi:true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[LogoutDialogComponent]
 })
 export class AppModule { }
