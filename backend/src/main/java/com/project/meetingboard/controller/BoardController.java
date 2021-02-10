@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,23 +28,23 @@ public class BoardController {
 	private BoardService boardService;
 
 	@PutMapping
-	public ResponseEntity<ResponseDTO> upsert(@RequestBody BoardDTO request) {
+	public ResponseEntity<BoardDTO> upsert(@RequestBody BoardDTO request) {
 		log.debug("Board Upsert Controller Invoked");
-		ResponseDTO response = boardService.upsert(request);
+		BoardDTO response = boardService.upsert(request);
 		return ResponseEntity.ok(response);
 	}
 
 	@GetMapping("_summary")
 	public ResponseEntity<List<BoardSummary>> getBoardSummary() {
-		log.debug("Board Summary Controller Invoked");
+		log.info("Board Summary Controller Invoked");
 		List<BoardSummary> response = boardService.getBoardSummary();
 		return ResponseEntity.ok(response);
 	}
 	
-	@GetMapping
-	public ResponseEntity<BoardDTO> getBoard(String boardId){
+	@GetMapping("/{id}")
+	public ResponseEntity<BoardDTO> getBoard(@PathVariable String id){
 		log.debug("Get Board Controller Invoked");
-		BoardDTO response = boardService.getBoard(boardId);
+		BoardDTO response = boardService.getBoard(id);
 		return ResponseEntity.ok(response);
 	}
 	

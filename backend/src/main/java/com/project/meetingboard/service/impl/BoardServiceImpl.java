@@ -9,23 +9,26 @@ import org.springframework.stereotype.Component;
 
 import com.project.meetingboard.dto.BoardDTO;
 import com.project.meetingboard.dto.BoardSummary;
-import com.project.meetingboard.dto.ResponseDTO;
 import com.project.meetingboard.exception.EntityNotFoundException;
 import com.project.meetingboard.model.Board;
 import com.project.meetingboard.repository.BoardRepository;
 import com.project.meetingboard.service.BoardService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardRepository repo;
 
 	@Override
-	public ResponseDTO upsert(BoardDTO request) {
+	public BoardDTO upsert(BoardDTO request) {
 
-		repo.save(new Board(request));
-		return new ResponseDTO("Board Saved Successfully.");
+		Board response = repo.save(new Board(request));
+		log.debug("Board Saved Successfully.");
+		return new BoardDTO(response);
 	}
 
 	@Override
