@@ -19,6 +19,10 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
 import {MatIconModule} from '@angular/material/icon';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { BoardComponent } from './board/board.component';
+import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     RegisterComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    LogoutDialogComponent
+    LogoutDialogComponent,
+    BoardComponent,
+    NewBoardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule
   ],
   providers: [
     {
@@ -49,6 +56,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[LogoutDialogComponent]
+  entryComponents:[LogoutDialogComponent,NewBoardDialogComponent]
 })
 export class AppModule { }
