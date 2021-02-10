@@ -1,0 +1,20 @@
+<div class="customStyle">
+<h1 mat-dialog-title>Create New Board</h1>
+<hr>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Board Title</mat-label>
+        <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+</div>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Board Context</mat-label>
+        <input matInput [(ngModel)]="data.context">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" [disabled]="!(data.title?.length>0)" >Create</button>
+</div>
+</div>
