@@ -67,18 +67,18 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" style="height: 70vh;">
+                <div class="container-fluid" style="min-height: 70vh;">
 
                     <!-- Page Heading -->
                     <div class="customflex">
                         <h1 class="h3 mb-4 text-gray-800">DASHBOARD</h1>
-                        <button class="btn-primary">Create New Board</button>
+                        <button class="btn-primary" (click)="addNewBoard()">Create New Board</button>
                     </div>
                     <hr>
 
                     <div class="row">
                         <div *ngFor="let board of summaryBoards" class="col-xl-3 col-md-6 mb-4 customCard"
-                            (click)="test(board.id)">
+                            (click)="openBoard(board.id)">
                             <div class="card border-left-primary shadow h-100 py-2 ">
                                 <div class="card-body ">
                                     <div class="row no-gutters align-items-center">
@@ -121,25 +121,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
