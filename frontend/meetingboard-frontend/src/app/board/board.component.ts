@@ -57,7 +57,9 @@ export class BoardComponent implements OnInit {
 
   openCardDeleteDialog() {
     console.log("logout");
-    const dialogRef = this.dialog.open(LogoutDialogComponent);
+    const dialogRef = this.dialog.open(LogoutDialogComponent,{
+      data:{displayText:"Do u Really Want To Delete !!!"}
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log("Deleting Card");

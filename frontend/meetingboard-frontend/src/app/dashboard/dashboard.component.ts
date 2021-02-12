@@ -30,7 +30,8 @@ export class DashboardComponent implements OnInit {
 
   openLogoutDialog() {
     console.log("logout");
-    const dialogRef = this.dialog.open(LogoutDialogComponent);
+    const dialogRef = this.dialog.open(LogoutDialogComponent,{
+      data:{displayText:"Do u Really Want To Log Out !!!"}});
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log("Logging Out");
@@ -66,8 +67,4 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['board/'+id]);
   }
 
-  test(id) {
-    console.log(id);
-    console.log("test");
-  }
 }
