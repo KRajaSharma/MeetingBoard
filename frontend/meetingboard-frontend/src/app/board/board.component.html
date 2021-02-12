@@ -1,1 +1,203 @@
-{{board | json}}
+<link href="../others/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="../others/css/sb-admin-2.css" rel="stylesheet">
+
+<body *ngIf="isDataAvailable" id="page-top">
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="displayBoard.title" name="title"
+                                class="form-control bg-light border-2 small text-uppercase font-weight-bold"
+                                placeholder="Title..." aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </form>
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="displayBoard.context" name="context"
+                                class="form-control bg-light border-2 small" placeholder="Context..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </form>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+
+                            <button mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <mat-icon>list</mat-icon>
+                            </button>
+                            <!-- Dropdown - User Information -->
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item>
+                                    <mat-icon>get_app</mat-icon>
+                                    <span>Get as PDF</span>
+                                </button>
+
+                            </mat-menu>
+                        </li>
+
+                    </ul>
+                </nav>
+                <div class="container-fluid" style="min-height: 80vh;">
+                    <div class="row" style="min-height: 80vh;">
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-between">
+                                <div class="text-center font-weight-bold text-dark primary columnName">
+                                    WENT WELL
+                                </div>
+                                <button mat-icon-button>
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                            <hr class="customHr">
+                            <div *ngFor="let card of displayBoard.wentWell; let i = index" style="margin-bottom: 10px;">
+                                <div *ngIf="card.isEdit" class="d-flex justify-content-between styleflexdiv">
+                                    <textarea [(ngModel)]="displayBoard.wentWell[i].text" class="element customtextarea"
+                                        matInput cdkTextareaAutosize cdkAutosizeMinRows="2" style="width: 100%;">
+                                    </textarea>
+                                    <div class="d-flex flex-column">
+                                        <button style="font-size: 15px;color: red;" mat-icon-button
+                                            (click)="openCardDeleteDialog()">
+                                            <mat-icon style="font-size: 20px">delete</mat-icon>
+                                        </button>
+                                        <button style="font-size: 15px;color: #4E73DF;" mat-icon-button
+                                            (click)="card.isEdit = !card.isEdit">
+                                            <mat-icon style="font-size: 20px">save</mat-icon>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div *ngIf="!card.isEdit">
+
+                                    <div class="card border-left-primary shadow h-100 py-2 ">
+                                        <div class="card-body ">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2 d-flex justify-content-between"
+                                                    style="margin-right: 0px !important;">
+                                                    <div class="font-weight-bold">
+                                                        {{card.text}}
+                                                    </div>
+                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                        <mat-icon style="font-size: 20px">create</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-between">
+                                <div class=" text-center font-weight-bold text-dark primary columnName">
+                                    TO IMPROVE
+                                </div>
+                                <button mat-icon-button>
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                            <hr class="customHr">
+                            <div *ngFor="let card of displayBoard.toImprove; let i = index" style="margin-bottom: 10px;">
+                                <div *ngIf="card.isEdit" class="d-flex justify-content-between styleflexdiv">
+                                    <textarea [(ngModel)]="displayBoard.toImprove[i].text" class="element customtextarea"
+                                        matInput cdkTextareaAutosize cdkAutosizeMinRows="2" style="width: 100%;">
+                                    </textarea>
+                                    <div class="d-flex flex-column">
+                                        <button style="font-size: 15px;color: red;" mat-icon-button
+                                            (click)="openCardDeleteDialog()">
+                                            <mat-icon style="font-size: 20px">delete</mat-icon>
+                                        </button>
+                                        <button style="font-size: 15px;color: #4E73DF;" mat-icon-button
+                                            (click)="card.isEdit = !card.isEdit">
+                                            <mat-icon style="font-size: 20px">save</mat-icon>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div *ngIf="!card.isEdit">
+
+                                    <div class="card border-left-danger shadow h-100 py-2 ">
+                                        <div class="card-body ">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2 d-flex justify-content-between"
+                                                    style="margin-right: 0px !important;">
+                                                    <div class="font-weight-bold">
+                                                        {{card.text}}
+                                                    </div>
+                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                        <mat-icon style="font-size: 20px">create</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-between">
+                                <div class=" text-center font-weight-bold text-dark primary columnName">
+                                    ACTION ITEM
+                                </div>
+                                <button mat-icon-button>
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                            <hr class="customHr">
+                            <div *ngFor="let card of displayBoard.actionItem; let i = index" style="margin-bottom: 10px;">
+                                <div *ngIf="card.isEdit" class="d-flex justify-content-between styleflexdiv">
+                                    <textarea [(ngModel)]="displayBoard.actionItem[i].text" class="element customtextarea"
+                                        matInput cdkTextareaAutosize cdkAutosizeMinRows="2" style="width: 100%;">
+                                    </textarea>
+                                    <div class="d-flex flex-column">
+                                        <button style="font-size: 15px;color: red;" mat-icon-button
+                                            (click)="openCardDeleteDialog()">
+                                            <mat-icon style="font-size: 20px">delete</mat-icon>
+                                        </button>
+                                        <button style="font-size: 15px;color: #4E73DF;" mat-icon-button
+                                            (click)="card.isEdit = !card.isEdit">
+                                            <mat-icon style="font-size: 20px">save</mat-icon>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div *ngIf="!card.isEdit">
+
+                                    <div class="card border-left-success shadow h-100 py-2 ">
+                                        <div class="card-body ">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2 d-flex justify-content-between"
+                                                    style="margin-right: 0px !important;">
+                                                    <div class="font-weight-bold ">
+                                                        {{card.text}}
+                                                    </div>
+                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                        <mat-icon style="font-size: 20px">create</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>

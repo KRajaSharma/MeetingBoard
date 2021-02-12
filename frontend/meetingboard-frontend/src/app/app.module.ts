@@ -22,6 +22,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BoardComponent } from './board/board.component';
 import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule,
+    TextFieldModule
   ],
   providers: [
     {

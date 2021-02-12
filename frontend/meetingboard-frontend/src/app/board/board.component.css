@@ -1,0 +1,36 @@
+.columnName{
+    padding-bottom: 6px;
+}
+.customHr{
+    margin-top: 0px;
+}
+
+.element::-webkit-scrollbar { width: 0 !important }
+.element { overflow: -moz-scrollbars-none; }
+.element { -ms-overflow-style: none; }
+
+.customtextarea{
+    border: 0px !important;
+    overflow-wrap: break-word;
+    resize: none;
+    outline: none;
+}
+.styleflexdiv{
+    background: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+.card-body{
+    padding: 5px;
+    color: black;
+}
+.card{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.mat-icon-button{
+    height: 25px !important;
+    width : 25px !important;
+}
+
