@@ -6,6 +6,8 @@ import { Board } from '../model/board';
 import { Card } from '../model/card';
 import { DisplayBoard } from '../model/displayBoard';
 import { BoardService } from '../service/board.service';
+import jspdf, { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-board',
@@ -143,6 +145,20 @@ export class BoardComponent implements OnInit {
   }
 
   downloadAsPDF(){
-    
+    var data = document.getElementById('content');
+    html2canvas(data).then(canvas => {
+
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image.png');
+      let pdf = new jsPDF('p', 'mm', 'a4');
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('File.pdf');
+
+    });
   }
 }

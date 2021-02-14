@@ -28,9 +28,9 @@
                         </div>
                     </form>
 
-                    <button class="btn btn-primary" (click)="saveBoard()" > SAVE BOARD</button>
+                    <button data-html2canvas-ignore="true" class="btn btn-primary" (click)="saveBoard()" > SAVE BOARD</button>
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" data-html2canvas-ignore="true">
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -41,7 +41,7 @@
                             </button>
                             <!-- Dropdown - User Information -->
                             <mat-menu #menu="matMenu">
-                                <button mat-menu-item>
+                                <button mat-menu-item (click)="downloadAsPDF()">
                                     <mat-icon>get_app</mat-icon>
                                     <span>Get as PDF</span>
                                 </button>
@@ -61,7 +61,7 @@
                                 <div class="text-center font-weight-bold text-dark primary columnName">
                                     WENT WELL
                                 </div>
-                                <button mat-icon-button (click)="addNewCard(1)">
+                                <button mat-icon-button data-html2canvas-ignore="true" (click)="addNewCard(1)">
                                     <mat-icon>add</mat-icon>
                                 </button>
                             </div>
@@ -93,7 +93,7 @@
                                                     <div class="font-weight-bold">
                                                         {{card.text}}
                                                     </div>
-                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                    <button data-html2canvas-ignore="true" mat-icon-button (click)="card.isEdit = !card.isEdit">
                                                         <mat-icon style="font-size: 15px;color: #4E73DF;">create</mat-icon>
                                                     </button>
                                                 </div>
@@ -108,7 +108,7 @@
                                 <div class=" text-center font-weight-bold text-dark primary columnName">
                                     TO IMPROVE
                                 </div>
-                                <button mat-icon-button (click)="addNewCard(2)">
+                                <button mat-icon-button (click)="addNewCard(2)" data-html2canvas-ignore="true">
                                     <mat-icon>add</mat-icon>
                                 </button>
                             </div>
@@ -140,7 +140,7 @@
                                                     <div class="font-weight-bold">
                                                         {{card.text}}
                                                     </div>
-                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                    <button data-html2canvas-ignore="true" mat-icon-button (click)="card.isEdit = !card.isEdit">
                                                         <mat-icon style="font-size: 15px;color: #4E73DF;">create</mat-icon>
                                                     </button>
                                                 </div>
@@ -155,7 +155,7 @@
                                 <div class=" text-center font-weight-bold text-dark primary columnName">
                                     ACTION ITEM
                                 </div>
-                                <button mat-icon-button (click)="addNewCard(3)">
+                                <button mat-icon-button (click)="addNewCard(3)" data-html2canvas-ignore="true">
                                     <mat-icon>add</mat-icon>
                                 </button>
                             </div>
@@ -187,7 +187,7 @@
                                                     <div class="font-weight-bold ">
                                                         {{card.text}}
                                                     </div>
-                                                    <button mat-icon-button (click)="card.isEdit = !card.isEdit">
+                                                    <button data-html2canvas-ignore="true" mat-icon-button (click)="card.isEdit = !card.isEdit">
                                                         <mat-icon style="font-size: 15px;color: #4E73DF;">create</mat-icon>
                                                     </button>
                                                 </div>
