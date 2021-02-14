@@ -5,7 +5,7 @@ export class DisplayBoard{
         public id:string,
         public title:string,
         public context:string,
-        public isActive:boolean,
+        public active:boolean,
         public createdOn:string,
         public wentWell:Card[],
         public toImprove:Card[],

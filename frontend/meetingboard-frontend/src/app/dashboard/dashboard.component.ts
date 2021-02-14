@@ -3,7 +3,7 @@ import { SummaryBoards } from '../model/summaryBoard';
 import { BoardService } from '../service/board.service';
 import { UserServiceService } from '../service/user-service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { LogoutDialogComponent } from '../conformation-dialog/conformation-dialog.component';
 import { Router } from '@angular/router';
 import { NewBoardDialogComponent } from '../new-board-dialog/new-board-dialog.component';
 import { Board } from '../model/board';

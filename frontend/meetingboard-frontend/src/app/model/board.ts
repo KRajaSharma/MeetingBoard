@@ -3,7 +3,7 @@ export class Board{
         public id:string,
         public title:string,
         public context:string,
-        public isActive:boolean,
+        public active:boolean,
         public createdOn:string,
         public wentWell:string[],
         public toImprove:string[],

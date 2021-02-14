@@ -17,7 +17,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
 import {MatIconModule} from '@angular/material/icon';
-import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+import { LogoutDialogComponent } from './conformation-dialog/conformation-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BoardComponent } from './board/board.component';
 import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
