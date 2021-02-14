@@ -34,7 +34,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardSummary> getBoardSummary() {
 		final String emailId = SecurityContextHolder.getContext().getAuthentication().getName();
-		List<Board> boards = repo.findByUserEmailId(emailId);
+		List<Board> boards = repo.findByUserEmailIdAndIsActive(emailId,true);
 		return boards.stream().map(BoardSummary::new).collect(Collectors.toList());
 	}
 

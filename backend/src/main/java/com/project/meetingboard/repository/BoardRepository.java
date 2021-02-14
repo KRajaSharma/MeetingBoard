@@ -10,5 +10,5 @@ import com.project.meetingboard.model.Board;
 @Repository
 public interface BoardRepository extends MongoRepository<Board, String>{
 
-	public List<Board> findByUserEmailId(String emailId);
+	public List<Board> findByUserEmailIdAndIsActive(String emailId,boolean isActive);
 }
